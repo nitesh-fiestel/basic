@@ -1,15 +1,18 @@
 <?php
 $this->registerJsFile(Yii::$app->request->baseUrl.'/js/index.js',['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
- 
+
+
+
 <br><br><br>
 <div class="container">
     <div class="column">
         <div ><div class="col-sm-5">
-            <div class="dropdown" >
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                    Filter by coupon type<span class="caret"></span></button>
-                    <ul class="dropdown-menu" style="overflow-y: scroll;">
+            <div class="btn-group" >
+                <button class="btn btn-primary">Filter by coupon type</button>
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                      <?php foreach ($resultType as $name) {
                        echo '<li><input type="radio" name="$name" id="$name" onclick="dispCouponByType(\''.$name.'\');" /> '.$name.'</li>';
                             
@@ -22,10 +25,11 @@ $this->registerJsFile(Yii::$app->request->baseUrl.'/js/index.js',['depends' => [
                 
             </div>
             <div class="col-sm-4">        
-           <div class="dropdown" >
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                Filter by Stores<span class="caret"></span></button>
-                        <ul class="dropdown-menu" style="overflow-y: scroll; height: 300px;">
+           <div class="btn-group" >
+                <button class="btn btn-primary">Filter by Store</button>
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                             <?php foreach ($resultStores as $name) {
                                  echo '<li><input type="radio" name="$name" id="$name" onclick="dispCoupon(\''.$name.'\');" /> '.$name.'</li>';
                             } ?>
@@ -33,12 +37,14 @@ $this->registerJsFile(Yii::$app->request->baseUrl.'/js/index.js',['depends' => [
             </div><br><br>
             
             </div><div class="col-sm-3">
-            <div class="dropdown" >
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                            Filter by Categories<span class="caret"></span></button>
-                        <ul class="dropdown-menu" style="overflow-y: scroll; height: 300px;">
+            <div class="btn-group" >
+                <button class="btn btn-primary">Filter by coupon categories</button>
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                             <?php foreach ($resultCategory as $name) {
                                     echo '<li><input type="radio" name="$name" id="$name" onclick="dispCouponByCategory(\''.$name.'\');"/> '.$name.'</li>';
+                                    
                             } ?>
                         </ul>
             </div><br><br>
